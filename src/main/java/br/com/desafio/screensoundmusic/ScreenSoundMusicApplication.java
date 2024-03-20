@@ -1,3 +1,4 @@
+
 package br.com.desafio.screensoundmusic;
 
 import java.util.Scanner;
@@ -5,6 +6,8 @@ import java.util.Scanner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import br.com.desafio.screensoundmusic.menu.Menu;
 
 @SpringBootApplication
 public class ScreenSoundMusicApplication implements CommandLineRunner {
@@ -16,6 +19,7 @@ public class ScreenSoundMusicApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		Scanner read = new Scanner(System.in);
+		Menu menu = new Menu(read);
 
 		
 		boolean validacao;
@@ -32,7 +36,7 @@ public class ScreenSoundMusicApplication implements CommandLineRunner {
 	
 			switch (opcao) {
 				case 1:
-					System.out.println("***CADASTRANDO ARTISTAS***");					
+					validacao = menu.CadastrarArtista();					
 					break;
 
 				case 0:
