@@ -34,6 +34,9 @@ public class ScreenSoundMusicApplication implements CommandLineRunner {
 				***Screen Sound Music
 	
 				1- Cadastrar artistas
+				2- Cadastrar musicas
+				3- Listar musicas
+				4- Buscar musicas por artista
 
 				0- Sair
 			""");
@@ -41,7 +44,19 @@ public class ScreenSoundMusicApplication implements CommandLineRunner {
 	
 			switch (opcao) {
 				case 1:
-					validacao = menu.CadastrarArtista();					
+					menu.CadastrarArtista();					
+					break;
+
+				case 2:
+					menu.CadastrarMusica();
+					break;
+
+				case 3:
+					menu.ListarMusicas();
+					break;
+
+				case 4:
+					menu.BuscarMusicaPorArtista();
 					break;
 
 				case 0:
