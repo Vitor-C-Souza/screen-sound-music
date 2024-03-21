@@ -37,6 +37,7 @@ public class ScreenSoundMusicApplication implements CommandLineRunner {
 				2- Cadastrar musicas
 				3- Listar musicas
 				4- Buscar musicas por artista
+				5- Pesquisar dados sobre um artista
 
 				0- Sair
 			""");
@@ -57,6 +58,10 @@ public class ScreenSoundMusicApplication implements CommandLineRunner {
 
 				case 4:
 					menu.BuscarMusicaPorArtista();
+					break;
+
+				case 5:
+					menu.obterDadosArtistas();
 					break;
 
 				case 0:

@@ -4,17 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 import br.com.desafio.screensoundmusic.model.Artista;
 import br.com.desafio.screensoundmusic.model.Musica;
 import br.com.desafio.screensoundmusic.model.TipoArtista;
 import br.com.desafio.screensoundmusic.repository.ArtistaRepository;
+import br.com.desafio.screensoundmusic.service.ConsultaChatGPT;
 
 public class Menu {
     private Scanner read;
     private ArtistaRepository repositorio;
-
     private String cadastrar;
 
     public Menu(Scanner read, ArtistaRepository repositorio) {
@@ -86,5 +85,14 @@ public class Menu {
         List<Musica> musica = repositorio.BuscarMusicaPorArtista(artista.get());
 
         musica.stream().forEach(System.out::println);
+    }
+
+    public void obterDadosArtistas() {
+        System.out.println("Digite o nome do artista para obter a informação: ");
+        String nomeArtista = read.nextLine();
+
+        String infoArtista = ConsultaChatGPT.obterInformacoes(nomeArtista);
+
+        System.out.println(infoArtista);
     }
 }
